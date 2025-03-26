@@ -7,10 +7,8 @@ router.register(r'tasks', TaskViewSet) # API: /api/tasks/
 router.register(r'users', UserViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),  # ✅ Register ViewSet-based APIs
-
-    # ✅ Fix: Ensure assign_task_to_users API is correctly mapped as a POST request
-    #path('tasks/assign/', assign_task_to_users, name='assign_task_to_users'),
+    path('', include(router.urls)), 
+   
 
     path('users/<int:user_id>/tasks/', get_user_tasks, name='get_user_tasks'),
     path('users/', get_users, name='get_users'),
